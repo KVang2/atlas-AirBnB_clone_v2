@@ -5,7 +5,6 @@ containing routes
 '/', '/hbnb', '/c/<text>
 """
 from flask import Flask
-
 app = Flask(__name__)
 
 
@@ -21,7 +20,7 @@ def hbnb():
 
 @app.route('//<text>', strict_slashes=False)
 def display_c(text):
-    return 'C ', + text.replace('_', ' ')
+    return 'C ' + text.replace('_', ' ')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
