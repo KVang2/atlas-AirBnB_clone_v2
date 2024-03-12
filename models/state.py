@@ -17,4 +17,14 @@ class State(BaseModel, Base):
         cities = relationship("City", backref="state")
     else:
         name = ""
-	cites = []
+        cities = []
+
+    @property
+    def cities(self):
+        """Getter to return city"""
+        city_list = []
+        if models.storage_t != "db":
+            for city in models.storage.all(City).values():
+                if city.state_id == self.id:
+                    city_list.append(city)
+            return city_list
