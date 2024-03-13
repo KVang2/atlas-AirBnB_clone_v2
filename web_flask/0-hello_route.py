@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Script that starts Flask web application 
+Script that starts Flask web application
 contain route of '/'
 """
 from flask import Flask
