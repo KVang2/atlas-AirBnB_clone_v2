@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>States</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>States</H1>
+        <ul>
+            {% for state in states|sort(attribute='name') %}
+            <!-- Loop over state obj in 'states' list, sorted A-Z by name -->
+            <li>{{ state.id }}: <b>{{ state.name }}</b>
+                <!-- Display state id and name in bold -->
+                <ul>
+                    {% for city in state.cities|sort(attribute='name') %}
+                    <!-- Loop over city obj linked to current state, sorted A-Z by name-->
+                    <li>{{ city.id }}: <b>{{ city.name }}</b></li>
+                    <!-- Display city id and name in bold -->
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+            <!-- control structure used to mark end of loop -->
+        </ul>
+    </BODY>
+</HTML>
